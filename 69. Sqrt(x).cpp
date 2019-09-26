@@ -1,8 +1,14 @@
 //https://leetcode.com/problems/sqrtx/
 class Solution {
 public:
-    int mySqrt(int x) {
-        return sqrt(x);
+    int mySqrt(int n) {
+        double x = 1;
+        for (;;) {
+	        double nx = (x + n / x) / 2;
+	        if (abs (x - nx) < 0.000001)  break;
+	        x = nx;
+        }
+        return x;
     }
 };
 
