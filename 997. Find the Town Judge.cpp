@@ -1,7 +1,6 @@
+//https://leetcode.com/problems/find-the-town-judge/
 #include <iostream>
 #include <vector>
-
-//https://leetcode.com/problems/find-the-town-judge/
 
 using namespace std;
 
