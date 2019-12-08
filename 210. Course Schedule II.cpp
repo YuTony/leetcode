@@ -10,7 +10,7 @@ using namespace std;
 
 class Solution {
    public:
-    vector<int> findOrder(int numCourses, vector<pair<int, int>>& prerequisites) {
+    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
         graph g = buildGraph(numCourses, prerequisites);
         vector<int> order;
         vector<bool> gone(numCourses, false), done(numCourses, false);
@@ -26,10 +26,10 @@ class Solution {
    private:
     typedef vector<vector<int>> graph;
 
-    graph buildGraph(int numCourses, vector<pair<int, int>>& prerequisites) {
+    graph buildGraph(int numCourses, vector<vector<int>>& prerequisites) {
         graph g(numCourses);
         for (auto p : prerequisites) {
-            g[p.second].push_back(p.first);
+            g[p[1]].push_back(p[0]);
         }
         return g;
     }
@@ -55,7 +55,7 @@ class Solution {
 
 int main() {
     Solution s;
-    vector<pair<int, int>> d = {{1, 0}, {2, 0}, {3, 1}, {3, 2}, {1, 3}};
+    vector<vector<int>> d = {{1, 0}, {2, 0}, {3, 1}, {3, 2}, {1, 3}};
     vector<int> ans = s.findOrder(4, d);
     return 0;
 }
