@@ -106,3 +106,4 @@ venv.bak/
 .vscode/
 test*
 temp*
+*old.cpp
